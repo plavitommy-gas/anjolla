@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="sr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anjolla Nails — Nail studio, Beograd</title>
+<meta name="description" content="Anjolla Nails — nail studio na Čukarici, Beograd. Gel lak, ojačavanje noktiju i nail art u toplom, ženstvenom ambijentu. Zakazivanje putem Instagram DM-a.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Anjolla Nails — Nail studio, Beograd">
+<meta property="og:description" content="Gel lak, ojačavanje i nail art na Čukarici. Elegantni nokti, ženstven ambijent.">
+<meta property="og:image" content="images/nails-pink-chrome.jpg">
+<link rel="icon" href="images/logo-emblem.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#faf8f5;
+  --cream-2:#f5f0e8;
+  --ink:#43403d;
+  --muted:#8b8783;
+  --lilac:#9483d2;
+  --lilac-soft:#ccc6ea;
+  --lilac-pale:#efe9f6;
+  --gold:#b2946a;
+  --gold-soft:#e7dcc9;
+  --navy:#1e2a3a;
+  --white:#ffffff;
+  --radius:22px;
+  --radius-lg:30px;
+  --maxw:1200px;
+  --ease:cubic-bezier(.44,0,.56,1);
+  --serif:"Cormorant Garamond",Georgia,serif;
+  --sans:"Manrope","Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4,p{margin:0}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.eyebrow{font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+.serif{font-family:var(--serif)}
+.btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--sans);font-weight:600;font-size:15px;padding:14px 26px;border-radius:100px;border:1px solid transparent;cursor:pointer;transition:transform .3s var(--ease),background .3s var(--ease),color .3s var(--ease),box-shadow .3s var(--ease)}
+.btn-primary{background:var(--lilac);color:#fff;box-shadow:0 10px 30px -12px rgba(148,131,210,.7)}
+.btn-primary:hover{transform:translateY(-2px);background:#8574c9;box-shadow:0 16px 36px -12px rgba(148,131,210,.8)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:#d9d2c7}
+.btn-ghost:hover{background:#fff;border-color:#cfc7ba;transform:translateY(-2px)}
+.btn-light{background:#fff;color:var(--navy)}
+.btn-light:hover{transform:translateY(-2px);box-shadow:0 14px 30px -14px rgba(0,0,0,.35)}
+.arrow{width:15px;height:15px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s var(--ease)}
+.btn:hover .arrow,.glow-circle:hover .arrow{transform:translateX(4px)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* continuous animations */
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes floaty2{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+@keyframes breathe{0%,100%{opacity:.7}50%{opacity:.95}}
+@keyframes ctaPulse{0%,100%{box-shadow:0 10px 30px -12px rgba(148,131,210,.7)}50%{box-shadow:0 14px 40px -8px rgba(148,131,210,1)}}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
+.emblem{animation:floaty 5s var(--ease) infinite}
+.float-card{animation:floaty2 6s var(--ease) infinite}
+.bigword{animation:breathe 6s ease-in-out infinite}
+.hero .btn-primary{animation:ctaPulse 3.4s ease-in-out infinite}
+.hero .btn-primary:hover{animation:none}
+.hl .ic svg{transition:transform .5s var(--ease)}
+.hl:hover .ic svg{transform:rotate(-8deg) scale(1.12)}
+.glow .spark{animation:floaty 5.5s var(--ease) infinite}
+.glow-circle:hover .arrow{animation:none}
+@media (prefers-reduced-motion:reduce){.emblem,.float-card,.bigword,.hero .btn-primary,.glow .spark{animation:none}}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;padding:16px 0;transition:background .35s var(--ease),box-shadow .35s var(--ease),padding .35s var(--ease)}
+.nav.scrolled{background:rgba(250,248,245,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(0,0,0,.05);padding:10px 0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-family:var(--serif);font-weight:500;font-size:28px;letter-spacing:.01em;color:var(--ink);display:flex;align-items:center;gap:2px}
+.brand small{font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-left:8px;transform:translateY(2px)}
+.nav-links{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.7);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:100px;padding:7px}
+.nav-links a{font-weight:600;font-size:14px;color:var(--ink);padding:8px 16px;border-radius:100px;transition:background .3s var(--ease),color .3s var(--ease)}
+.nav-links a:hover{background:var(--lilac-pale);color:var(--lilac)}
+.nav-cta{display:flex;align-items:center;gap:14px}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
+.burger span{width:24px;height:2px;background:var(--ink);border-radius:2px;transition:.3s var(--ease)}
+
+/* HERO */
+.hero{position:relative;margin:8px 12px 0;border-radius:var(--radius-lg);overflow:hidden;background:linear-gradient(155deg,#e9e2f5 0%,#efe7f1 42%,#f5efe7 100%)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center;padding:66px 56px 70px}
+.hero-copy{max-width:540px}
+.hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(46px,6vw,86px);line-height:1.02;letter-spacing:-.01em;margin:20px 0 0}
+.hero h1 em{font-style:italic;color:var(--lilac)}
+.hero-sub{font-size:17px;color:#5f5b57;margin-top:22px;max-width:430px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.hero-meta{display:flex;align-items:center;gap:22px;margin-top:34px}
+.stars{color:var(--gold);letter-spacing:2px;font-size:15px}
+.hero-meta .num{font-family:var(--serif);font-size:30px;font-weight:600;color:var(--lilac);line-height:1}
+.hero-meta small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+.vr{width:1px;height:38px;background:#d8d0e4}
+.hero-media{position:relative}
+.hero-media .shot{border-radius:24px;width:100%;height:520px;object-fit:cover;box-shadow:0 30px 60px -30px rgba(90,70,120,.5)}
+.float-card{position:absolute;left:-14px;bottom:26px;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-radius:18px;padding:13px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 18px 40px -20px rgba(0,0,0,.3)}
+.float-card .dot{width:38px;height:38px;border-radius:50%;background:var(--lilac-pale);display:flex;align-items:center;justify-content:center;color:var(--lilac)}
+.float-card b{display:block;font-size:14px}
+.float-card span{font-size:12px;color:var(--muted)}
+.emblem{position:absolute;top:-12px;right:-6px;width:96px;height:96px;border-radius:50%;object-fit:cover;border:5px solid rgba(255,255,255,.85);box-shadow:0 12px 26px -12px rgba(0,0,0,.3)}
+
+/* marquee wordmark */
+.bigword{font-family:var(--serif);font-weight:400;text-transform:uppercase;font-size:clamp(60px,15vw,190px);line-height:.9;letter-spacing:.02em;color:#b7a6ea;opacity:.85;text-align:center;padding:0 0 30px;margin-top:-6px}
+
+/* HIGHLIGHTS */
+.highlights{max-width:var(--maxw);margin:0 auto;padding:52px 24px 8px;display:grid;grid-template-columns:repeat(3,1fr) 1.15fr;gap:22px}
+.hl{display:flex;align-items:center;gap:15px}
+.hl .ic{flex:none;width:56px;height:56px;border-radius:50%;background:var(--lilac-pale);display:flex;align-items:center;justify-content:center;color:var(--lilac)}
+.hl .ic svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.hl h3{font-size:16px;font-weight:700;letter-spacing:.01em}
+.hl p{font-size:13px;color:var(--muted);margin-top:2px;line-height:1.4}
+.hl-pill{background:var(--lilac-pale);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;font-family:var(--serif);font-size:22px;color:var(--lilac);line-height:1.15}
+
+/* SECTION */
+.section{padding:88px 0}
+.sec-head{text-align:center;max-width:640px;margin:0 auto 46px}
+.sec-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(34px,4.6vw,58px);line-height:1.05;margin-top:14px}
+.sec-head p{color:var(--muted);margin-top:16px;font-size:16px}
+
+/* SERVICES */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.svc{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:1/1.12;box-shadow:0 20px 44px -30px rgba(80,60,110,.55)}
+.svc img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.svc:hover img{transform:scale(1.06)}
+.svc::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(30,22,40,.72) 0%,rgba(30,22,40,.15) 42%,transparent 66%)}
+.svc-body{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:22px}
+.svc-body h3{color:#fff;font-family:var(--serif);font-size:26px;font-weight:500}
+.svc-body p{color:rgba(255,255,255,.85);font-size:13.5px;margin-top:5px;line-height:1.45}
+.svc .tag{position:absolute;top:14px;left:14px;z-index:2;background:rgba(255,255,255,.85);backdrop-filter:blur(6px);color:var(--lilac);font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:100px}
+
+/* GALLERY */
+.gallery{columns:4;column-gap:16px}
+.gallery img{width:100%;border-radius:16px;margin-bottom:16px;break-inside:avoid;transition:transform .6s var(--ease),box-shadow .6s var(--ease);cursor:pointer}
+.gallery img:hover{transform:translateY(-4px) scale(1.01);box-shadow:0 20px 40px -22px rgba(80,60,110,.6)}
+.gallery-cta{text-align:center;margin-top:40px}
+
+/* ABOUT */
+.about{background:linear-gradient(150deg,#f3edf6 0%,#f6efe7 100%);border-radius:var(--radius-lg);margin:0 12px;overflow:hidden}
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center;padding:56px}
+.about-media{position:relative}
+.about-media img{border-radius:24px;width:100%;object-fit:cover;box-shadow:0 26px 54px -30px rgba(90,70,120,.5)}
+.about-copy h2{font-family:var(--serif);font-weight:400;font-size:clamp(32px,4.2vw,52px);line-height:1.06;margin-top:14px}
+.about-copy p{color:#5f5b57;margin-top:18px;font-size:16px}
+.about-stats{display:flex;gap:34px;margin-top:30px}
+.about-stats .n{font-family:var(--serif);font-size:40px;font-weight:600;color:var(--lilac);line-height:1}
+.about-stats small{color:var(--muted);font-size:13px}
+.about-sign{margin-top:26px;font-family:var(--serif);font-style:italic;font-size:26px;color:var(--gold)}
+
+/* QUOTE */
+.quote{text-align:center;max-width:820px;margin:0 auto;padding:96px 24px}
+.quote .mark{font-family:var(--serif);font-size:90px;line-height:0;color:var(--lilac-soft);display:block;height:40px}
+.quote p{font-family:var(--serif);font-weight:400;font-size:clamp(26px,3.4vw,40px);line-height:1.28;color:var(--ink)}
+.quote .who{margin-top:26px;color:var(--muted);font-weight:600;letter-spacing:.02em;font-size:14px}
+
+/* CONTACT */
+.contact{display:grid;grid-template-columns:1fr 1.15fr;gap:22px;padding-bottom:20px}
+.hours{background:var(--cream-2);border-radius:var(--radius-lg);padding:40px}
+.hours .ic{width:52px;height:52px;border-radius:14px;background:var(--gold-soft);display:flex;align-items:center;justify-content:center;color:var(--gold)}
+.hours .ic svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.hours h3{font-size:16px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin:18px 0 18px}
+.hours .row{display:flex;justify-content:space-between;padding:11px 0;border-top:1px solid #e6dfd3;color:#5f5b57;font-size:15px}
+.hours .row span:last-child{color:var(--ink);font-weight:600}
+.hours .note{margin-top:18px;font-size:13px;color:var(--muted)}
+.glow{background:radial-gradient(120% 120% at 80% 0%,#2b3a51 0%,var(--navy) 60%);border-radius:var(--radius-lg);padding:44px;color:#fff;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between}
+.glow .spark{width:52px;height:52px;border-radius:14px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:#fff}
+.glow .spark svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.glow h2{font-family:var(--serif);font-weight:400;font-size:clamp(32px,4vw,48px);line-height:1.05;margin:22px 0 10px;max-width:420px}
+.glow p{color:#c7cfda;max-width:400px}
+.glow .row{display:flex;align-items:center;justify-content:space-between;margin-top:30px;gap:16px;flex-wrap:wrap}
+.glow-circle{width:64px;height:64px;border-radius:50%;background:#fff;color:var(--navy);display:flex;align-items:center;justify-content:center;flex:none}
+.glow-circle svg{width:26px;height:26px}
+
+/* FOOTER */
+footer{padding:70px 0 40px;margin-top:20px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;align-items:start;padding-bottom:40px;border-bottom:1px solid #e7e0d6}
+.foot-brand .brand{font-size:34px}
+.foot-brand p{color:var(--muted);max-width:320px;margin-top:14px;font-size:15px}
+.foot h4{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.foot a,.foot li{color:#5f5b57;font-size:15px;line-height:2.1;list-style:none}
+.foot a:hover{color:var(--lilac)}
+.foot ul{margin:0;padding:0}
+.foot-ig{display:inline-flex;align-items:center;gap:9px;font-weight:600;color:var(--ink)}
+.foot-ig svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.7}
+.foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:26px;color:var(--muted);font-size:13px}
+
+@media (max-width:1000px){
+  .hero-grid{grid-template-columns:1fr;padding:48px 34px 54px}
+  .hero-media{order:-1}
+  .hero-media .shot{height:400px}
+  .highlights{grid-template-columns:repeat(2,1fr)}
+  .services{grid-template-columns:repeat(2,1fr)}
+  .gallery{columns:3}
+  .about-grid{grid-template-columns:1fr;padding:40px}
+  .about-media{max-width:440px;margin:0 auto}
+  .contact{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  .wrap{padding:0 18px}
+  .nav-links{display:none}
+  .burger{display:flex}
+  .nav .btn-primary{padding:10px 15px;font-size:13px;white-space:nowrap}
+  .brand{font-size:24px}
+  .brand small{display:none}
+  .nav-links.open{display:flex;position:absolute;top:70px;left:18px;right:18px;flex-direction:column;align-items:stretch;background:rgba(255,255,255,.97);backdrop-filter:blur(14px);padding:12px;box-shadow:0 20px 40px -20px rgba(0,0,0,.3)}
+  .nav-links.open a{padding:12px 16px}
+  .hero{margin:6px 8px 0}
+  .hero-grid{padding:32px 22px 40px}
+  .hero-meta{gap:16px}
+  .highlights{grid-template-columns:1fr;gap:18px;padding-top:40px}
+  .hl-pill{padding:20px}
+  .section{padding:60px 0}
+  .services{grid-template-columns:1fr}
+  .gallery{columns:2;column-gap:12px}
+  .gallery img{margin-bottom:12px}
+  .about,.about-grid{margin:0 8px}
+  .about-grid{padding:26px}
+  .about-stats{gap:22px}
+  .glow,.hours{padding:30px}
+  .foot-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand">Anjolla<small>Nails</small></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#usluge">Usluge</a>
+      <a href="#galerija">Galerija</a>
+      <a href="#o-nama">O nama</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="https://www.instagram.com/anjolla_nails/" target="_blank" rel="noopener" class="btn btn-primary">Zakaži termin</a>
+      <button class="burger" id="burger" aria-label="Meni"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-copy reveal">
+      <span class="eyebrow">Nail studio · Beograd</span>
+      <h1>Lepota na<br>vrhovima <em>prstiju</em></h1>
+      <p class="hero-sub">Gel lak, ojačavanje i nail art u toplom, ženstvenom ambijentu na Čukarici. Nokti koji izgledaju besprekorno — i traju.</p>
+      <div class="hero-actions">
+        <a href="https://www.instagram.com/anjolla_nails/" target="_blank" rel="noopener" class="btn btn-primary">Zakaži termin
+          <svg class="arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="#galerija" class="btn btn-ghost">Pogledaj galeriju</a>
+      </div>
+      <div class="hero-meta">
+        <div>
+          <span class="num">4.9</span>
+          <div class="stars">★★★★★</div>
+        </div>
+        <div class="vr"></div>
+        <div>
+          <div style="font-family:var(--serif);font-size:30px;font-weight:600;color:var(--lilac);line-height:1">100%</div>
+          <small>zadovoljnih klijentkinja</small>
+        </div>
+        <div class="vr"></div>
+        <div>
+          <div style="font-family:var(--serif);font-size:30px;font-weight:600;color:var(--lilac);line-height:1"><span style="font-family:var(--sans);font-size:12px;font-weight:600;color:var(--muted);vertical-align:middle">oko</span> 45 <span style="font-size:17px">min</span></div>
+          <small>prosečno trajanje</small>
+        </div>
+      </div>
+    </div>
+    <div class="hero-media reveal" style="transition-delay:.15s">
+      <img class="shot" src="images/nails-pink-chrome.jpg" alt="Roze chrome gel nokti — Anjolla Nails">
+      <img class="emblem" src="images/logo-emblem.jpg" alt="Anjolla logo">
+      <div class="float-card">
+        <div class="dot">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <div><b>Termin za 1 minut</b><span>Zakazivanje putem DM-a</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="bigword reveal" style="transition-delay:.3s">Nokti &amp; Nail&nbsp;Art</div>
+</section>
+
+<!-- HIGHLIGHTS -->
+<section class="highlights">
+  <div class="hl reveal">
+    <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2s7 3 7 8c0 5-3 8-7 12-4-4-7-7-7-12 0-5 7-8 7-8z"/><path d="M9.5 12l1.7 1.7 3.3-3.4"/></svg></div>
+    <div><h3>Higijenski</h3><p>Sterilisan pribor i čist prostor</p></div>
+  </div>
+  <div class="hl reveal" style="transition-delay:.1s">
+    <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 21l-4.9-2.9.9-5.5-4-3.9 5.5-.8z"/></svg></div>
+    <div><h3>Vrhunski materijali</h3><p>Proverene, kvalitetne baze i lakovi</p></div>
+  </div>
+  <div class="hl reveal" style="transition-delay:.2s">
+    <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 12a4 4 0 100-8 4 4 0 000 8z"/><path d="M5 21c0-3.5 3-6 7-6s7 2.5 7 6"/></svg></div>
+    <div><h3>Pažnja za detalje</h3><p>Precizan rad i nega noktiju</p></div>
+  </div>
+  <div class="hl-pill reveal" style="transition-delay:.3s">Brzo i tačno —<br>termin po dogovoru</div>
+</section>
+
+<!-- SERVICES -->
+<section class="section wrap" id="usluge">
+  <div class="sec-head reveal">
+    <span class="eyebrow">Naše usluge</span>
+    <h2>Sve za savršene nokte</h2>
+    <p>Od nežnog gel laka do detaljnog nail arta — svaki tretman prilagođavamo tvojim željama i prirodnim noktima.</p>
+  </div>
+  <div class="services">
+    <a class="svc reveal" href="https://www.instagram.com/anjolla_nails/" target="_blank" rel="noopener">
+      <span class="tag">Najtraženije</span>
+      <img src="images/nails-red.jpg" alt="Gel lak">
+      <div class="svc-body"><h3>Gel lak</h3><p>Dugotrajan sjaj i bogata boja koja se ne kruni.</p></div>
+    </a>
+    <a class="svc reveal" style="transition-delay:.08s" href="https://www.instagram.com/anjolla_nails/" target="_blank" rel="noopener">
+      <img src="images/nails-nude.jpg" alt="Ojačavanje noktiju">
+      <div class="svc-body"><h3>Ojačavanje</h3><p>Rubber baza za jače i otpornije prirodne nokte.</p></div>
+    </a>
+    <a class="svc reveal" style="transition-delay:.16s" href="https://www.instagram.com/anjolla_nails/" target="_blank" rel="noopener">
+      <span class="tag">Kreativno</span>
+      <img src="images/nails-lilac-hearts.jpg" alt="Nail art">
+      <div class="svc-body"><h3>Nail art</h3><p>Šare, srca, efekti i dizajn po tvojoj želji.</p></div>
+    </a>
+    <a class="svc reveal" href="https://www.instagram.com/anjolla_nails/" target="_blank" rel="noopener">
+      <img src="images/nails-glazed-branded.jpg" alt="French i kombinovani">
+      <div class="svc-body"><h3>French &amp; nude</h3><p>Bezvremenski, elegantni izgled za svaku priliku.</p></div>
+    </a>
+    <a class="svc reveal" style="transition-delay:.08s" href="https://www.instagram.com/anjolla_nails/" target="_blank" rel="noopener">
+      <img src="images/nails-pink-chrome.jpg" alt="Chrome i efekti">
+      <div class="svc-body"><h3>Chrome &amp; efekti</h3><p>Ogledalo, glazed i biserni sjaj koji privlači pažnju.</p></div>
+    </a>
+    <a class="svc reveal" style="transition-delay:.16s" href="https://www.instagram.com/anjolla_nails/" target="_blank" rel="noopener">
+      <img src="images/nails-mauve-glaze.jpg" alt="Manikir i nega">
+      <div class="svc-body"><h3>Manikir &amp; nega</h3><p>Uredna kutikula i negovan izgled ruku.</p></div>
+    </a>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section wrap" id="galerija" style="padding-top:24px">
+  <div class="sec-head reveal">
+    <span class="eyebrow">Galerija</span>
+    <h2>Radovi iz studija</h2>
+    <p>Nekoliko omiljenih kombinacija boja, tekstura i dizajna nastalih u Anjolla studiju.</p>
+  </div>
+  <div class="gallery">
+    <img class="reveal" src="images/nails-mauve-glaze.jpg" alt="Mauve glazed nokti">
+    <img class="reveal" style="transition-delay:.05s" src="images/nails-red.jpg" alt="Crveni gel nokti">
+    <img class="reveal" style="transition-delay:.1s" src="images/nails-lilac-hearts.jpg" alt="Lila nokti sa srcima">
+    <img class="reveal" style="transition-delay:.15s" src="images/nails-leopard.jpg" alt="Leopard nail art">
+    <img class="reveal" src="images/nails-editorial-pearls.jpg" alt="Nude nokti">
+    <img class="reveal" style="transition-delay:.05s" src="images/nails-purple.jpg" alt="Ljubičasti nokti">
+    <img class="reveal" style="transition-delay:.1s" src="images/nails-pink-fruit.jpg" alt="Roze nokti sa dizajnom">
+    <img class="reveal" style="transition-delay:.15s" src="images/nails-sage-gold.jpg" alt="Zeleni nokti sa zlatom">
+    <img class="reveal" src="images/nails-shimmer.jpg" alt="Nokti sa šljokicama">
+    <img class="reveal" style="transition-delay:.05s" src="images/nails-floral.jpg" alt="Cvetni nail art">
+    <img class="reveal" style="transition-delay:.1s" src="images/nails-pink-hearts.jpg" alt="Roze nokti sa srcima">
+    <img class="reveal" style="transition-delay:.15s" src="images/swatches.jpg" alt="Paleta boja gel lakova">
+  </div>
+  <div class="gallery-cta reveal">
+    <a href="https://www.instagram.com/anjolla_nails/" target="_blank" rel="noopener" class="btn btn-ghost">Više na Instagramu
+      <svg class="arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="o-nama">
+  <div class="about">
+    <div class="about-grid">
+      <div class="about-media reveal">
+        <img src="images/owner-illustration.jpg" alt="Anja — Anjolla Nails">
+      </div>
+      <div class="about-copy reveal" style="transition-delay:.1s">
+        <span class="eyebrow">O nama</span>
+        <h2>Mali studio sa<br>velikom pažnjom</h2>
+        <p>Anjolla je nail studio na Čukarici koji vodi Anja — sa ljubavlju prema detaljima i osećajem za ono što svakoj ruci najbolje stoji. Ovde nema žurbe: uzimamo vreme da saslušamo tvoju ideju i pretvorimo je u nokte u kojima ćeš uživati nedeljama.</p>
+        <p>Radimo u prijatnoj, opuštenoj atmosferi, sa sterilisanim priborom i proverenim materijalima — da svaki dolazak bude i mali predah za tebe.</p>
+        <div class="about-stats">
+          <div><div class="n">500+</div><small>urađenih noktiju</small></div>
+          <div><div class="n">1:1</div><small>posvećeno tvom terminu</small></div>
+          <div><div class="n">Čukarica</div><small>Beograd</small></div>
+        </div>
+        <div class="about-sign">— Anja, Anjolla Nails</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote reveal">
+  <span class="mark">&#8221;</span>
+  <p>Najbolji nail studio u kojem sam bila — Anja stvarno sasluša šta želiš i nokti traju predivno.</p>
+  <div class="who">— Zadovoljna klijentkinja</div>
+</section>
+
+<!-- CONTACT -->
+<section class="section wrap" id="kontakt" style="padding-top:20px">
+  <div class="contact">
+    <div class="hours reveal">
+      <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+      <h3>Radno vreme</h3>
+      <div class="row"><span>Ponedeljak — Petak</span><span>po dogovoru</span></div>
+      <div class="row"><span>Subota</span><span>po dogovoru</span></div>
+      <div class="row"><span>Nedelja</span><span>neradna</span></div>
+      <p class="note">Termini se zakazuju unapred putem Instagram DM-a — javi se i naći ćemo vreme koje ti odgovara.</p>
+    </div>
+    <div class="glow reveal" style="transition-delay:.1s">
+      <div>
+        <div class="spark"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 4.9L19 9.7l-4.2 3.2L15.5 18 12 15.3 8.5 18l.7-5.1L5 9.7l5.2-1.8z"/></svg></div>
+        <h2>Spremna za nove nokte?</h2>
+        <p>Zakaži svoj termin i pretvorimo tvoju ideju u savršen manikir.</p>
+      </div>
+      <div class="row">
+        <a href="https://www.instagram.com/anjolla_nails/" target="_blank" rel="noopener" class="btn btn-light">Piši nam na Instagramu</a>
+        <a href="https://www.instagram.com/anjolla_nails/" target="_blank" rel="noopener" class="glow-circle" aria-label="Zakaži">
+          <svg class="arrow" viewBox="0 0 24 24" style="stroke:var(--navy)"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="wrap">
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="brand">Anjolla<small>Nails</small></div>
+      <p>Nail studio na Čukarici, Beograd. Gel lak, ojačavanje i nail art u toplom, ženstvenom ambijentu.</p>
+    </div>
+    <div class="foot">
+      <h4>Studio</h4>
+      <ul>
+        <li><a href="#usluge">Usluge</a></li>
+        <li><a href="#galerija">Galerija</a></li>
+        <li><a href="#o-nama">O nama</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="foot">
+      <h4>Kontakt</h4>
+      <ul>
+        <li>📍 Čukarica, Beograd</li>
+        <li><a class="foot-ig" href="https://www.instagram.com/anjolla_nails/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          @anjolla_nails</a></li>
+        <li>Zakazivanje putem DM-a</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Anjolla Nails · Anja Nail Studio, Beograd</span>
+    <span>Napravljeno sa ♥</span>
+  </div>
+</footer>
+
+<script>
+// sticky nav bg
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20));
+// mobile menu
+const burger=document.getElementById('burger'),links=document.getElementById('navLinks');
+burger.addEventListener('click',()=>links.classList.toggle('open'));
+links.addEventListener('click',e=>{if(e.target.tagName==='A')links.classList.remove('open')});
+// reveal on scroll
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
